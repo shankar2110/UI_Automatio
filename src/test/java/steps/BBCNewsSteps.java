@@ -27,12 +27,12 @@ public class BBCNewsSteps {
 		this.bbcHomePageActions = bbcHomePageActions;
 	}
 
-	@When("Click on {string} link")
+	@When("^Click on \"([^\"]*)\" link$")
 	public void click_on_link(String string) {
 		bbcHomePageActions.clickOnTopMenuLink(string);
 	}
 
-	@Then("Verify the URl contains {string}")
+	@Then("^Verify the URl contains \"([^\"]*)\"$")
 	public void verify_the_u_rl(String string) {
 		commonActions.verifyCurrentUrl(string);
 	}

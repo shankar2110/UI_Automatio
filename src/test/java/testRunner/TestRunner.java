@@ -12,8 +12,7 @@ import io.cucumber.junit.CucumberOptions;
 		plugin = {"pretty", "json:target/json-report/cucumber.json"},
 		dryRun = false,
 		monochrome = true
-		//tags = "@P2"
-		//name = "Logo"
+		//tags = "@smoke"
 		)
 public class TestRunner {
 
