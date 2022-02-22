@@ -13,8 +13,8 @@ public class BBCHomePageElements {
 
 	WebDriver driver;
 	
-	public BBCHomePageElements(TestBase baseClass) {
-		this.driver = baseClass.getDriver();
+	public BBCHomePageElements(TestBase base) {
+		this.driver = base.getDriver();
 		PageFactory.initElements(driver, this);
 	}
 	

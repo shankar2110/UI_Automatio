@@ -5,12 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import actions.TestBase;
+
 public class BBCNewsPageElements {
 
 	WebDriver driver;
 
-	public BBCNewsPageElements(WebDriver driver) {
-		this.driver = driver;
+	public BBCNewsPageElements(TestBase base) {
+		this.driver = base.getDriver();
 		PageFactory.initElements(driver, this);
 	}
 	

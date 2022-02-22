@@ -24,7 +24,6 @@ public class CommonActions extends TestBase {
 	
 	LoadProperty loadProperty = new LoadProperty();
 
-	
 	// WebDriver Wait
 	WebDriverWait wait = new WebDriverWait(driver, 10);
 
@@ -77,7 +76,6 @@ public class CommonActions extends TestBase {
 				con.connect();
 				con.setConnectTimeout(3000);
 				int respCode = con.getResponseCode();
-				System.out.println("URL is: " + url + " , StatusCode is: " + respCode);
 				Assert.assertEquals(200, respCode);
 				}
 		}
