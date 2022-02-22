@@ -18,8 +18,8 @@ public class TestBase {
 
 	public WebDriver setUp() {
 		System.out.println("Inside Setup Method");
-//		browser = loadProperty.properties.getProperty("browser");
-		System.getProperty("browser");
+		browser = loadProperty.properties.getProperty("browser");
+		//System.getProperty("browser");
 		System.out.println("Browser " + browser);
 		if (browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
