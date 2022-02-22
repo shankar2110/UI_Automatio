@@ -23,7 +23,10 @@ Open a command window and run:
 This runs Cucumber features using Cucumber's JUnit runner. The `@RunWith(Cucumber.class)` annotation on the `TestRunner`
 class tells JUnit to kick off Cucumber.
 
+Cucumber reports are generated inside the cucumber-html-reports present inside the target folder (masterthought report)
+
 ## Browser is set from the property file. Currently we can run in both chrome and firefox.
 
 ## Screenshots and Logs to be added yet.
+
 
