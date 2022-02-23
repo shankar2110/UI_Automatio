@@ -30,10 +30,6 @@ public class TestBase {
 		return driver;
 	}
 
-	public void tearDown() {
-		driver.quit();
-	}
-
 	public WebDriver getDriver() {
 		return driver;
 	}

@@ -1,7 +1,5 @@
 package actions;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -12,20 +10,21 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.w3c.dom.Element;
 
 import Utils.LoadProperty;
+import io.cucumber.java.Scenario;
 
 public class CommonActions extends TestBase {
 	
 	LoadProperty loadProperty = new LoadProperty();
 
 	// WebDriver Wait
-	WebDriverWait wait = new WebDriverWait(driver, 10);
+	WebDriverWait wait = new WebDriverWait(driver, 3);
 
 	public void launchUrl() {
 		String url = loadProperty.properties.getProperty("url");
@@ -67,6 +66,10 @@ public class CommonActions extends TestBase {
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 	
+	public void waitTillClickable(WebElement element) {
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+	
 	public void verifyLinksUsingHTTPConnection(List<WebElement> elementList) throws IOException {
 		HttpURLConnection con = null;
 		for (WebElement element: elementList) {
@@ -88,6 +91,11 @@ public class CommonActions extends TestBase {
 		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
 		String formattedDate = sdf.format(date);
 		return formattedDate;
+	}
+	
+	public void takeScreenshot(Scenario scenario) {
+		final byte[] scr = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+		scenario.attach(scr, "image/png", scenario.getName());
 	}
 
 }

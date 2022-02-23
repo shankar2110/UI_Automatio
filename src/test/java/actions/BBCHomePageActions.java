@@ -1,21 +1,18 @@
 package actions;
 
 import java.io.IOException;
-import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import elements.BBCHomePageElements;
-import junit.framework.Assert;
+
+import org.junit.Assert;
 
 public class BBCHomePageActions {
 
 	BBCHomePageElements bbcHomePageElements;
 	CommonActions commonActions;
-
+	
 	public BBCHomePageActions(BBCHomePageElements bbcHomePageElements, CommonActions commonActions) {
 		this.bbcHomePageElements = bbcHomePageElements;
 		this.commonActions = commonActions;
@@ -47,7 +44,6 @@ public class BBCHomePageActions {
 			String dateText = commonActions.getText(bbcHomePageElements.todaysDate);
 			String todaysDateText = commonActions.getDayDate();
 			Assert.assertTrue("Date is not matching", dateText.contains(todaysDateText));
-			//Assert.assertEquals(dateText.contains(todaysDateText), "Date is not matching");
 		} catch (Exception e) {
 			e.printStackTrace();
 			Assert.fail();
@@ -56,14 +52,23 @@ public class BBCHomePageActions {
 
 	// Search for the Keyword
 	public void searchKeyword(String string) {
+		try {
 		commonActions.sendKeys(bbcHomePageElements.topSearchInputBox, string);
 		commonActions.keyboardPress(bbcHomePageElements.topSearchInputBox, Keys.ENTER);
+		} catch (Exception e) {
+			e.printStackTrace();
+			Assert.fail();
+		}
 	}
 	
 	// Verify Search Results
 	public void verifySearchResults() {
-		commonActions.waitTillVisible(bbcHomePageElements.searchResults);
+		try {
 		Assert.assertTrue("No Results displayed", bbcHomePageElements.searchResults.isDisplayed());
+		} catch (Exception e) {
+			e.printStackTrace();
+			Assert.fail();
+		}
 		
 	}
 	

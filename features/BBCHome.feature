@@ -17,3 +17,9 @@ Feature: BBC Home Page Scenarios
     Given I am on BCC Home Page
     When Search for 'Houghton Mifflin Harcourt'
     Then Verify the Search Results
+
+  @negative
+  Scenario: Verify Search Results
+    Given I am on BCC Home Page
+    When Search for 'asvdhah'
+    Then Verify the Search Results
