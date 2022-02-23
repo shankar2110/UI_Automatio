@@ -27,8 +27,7 @@ Cucumber reports are generated inside the cucumber-html-reports present inside t
 
 ## Browser is set from the property file. Currently we can run in both chrome and firefox.
 
-## Purposely added one failure test scenario in 'BCCHome.feature' to show that screenshot is getting attach
-## to the Report when scenario fails. 
+## Purposely added one failure test scenario in 'BCCHome.feature' to show that screenshot is getting attach to the Report when scenario fails. 
 
 ## Logs to be added yet.
 
